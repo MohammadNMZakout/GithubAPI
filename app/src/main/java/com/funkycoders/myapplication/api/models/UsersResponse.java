@@ -2,7 +2,7 @@ package com.funkycoders.myapplication.api.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class GithubUserResponse {
+public class UsersResponse {
     @SerializedName("login")
     private String login;
 
@@ -57,7 +57,7 @@ public class GithubUserResponse {
     @SerializedName("site_admin")
     private Boolean siteAdmin;
 
-    public GithubUserResponse() {
+    public UsersResponse() {
     }
 
     public String getLogin() {

@@ -1,6 +1,6 @@
 package com.funkycoders.myapplication.api.interfaces;
 
-import com.funkycoders.myapplication.api.models.GithubUserResponse;
+import com.funkycoders.myapplication.api.models.UsersResponse;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import retrofit2.http.Query;
 public interface GithubServices {
 
     @GET("/users")
-    Call<List<GithubUserResponse>> getUsers(@Query("page") int page);
+    Call<List<UsersResponse>> getUsers(@Query("page") int page);
 
     @GET("/users/{username}")
-    Call<GithubUserResponse> getUser(@Path("username") String username);
+    Call<UsersResponse> getUser(@Path("username") String username);
 }
