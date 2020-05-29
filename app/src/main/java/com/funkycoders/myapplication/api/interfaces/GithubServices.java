@@ -1,5 +1,6 @@
 package com.funkycoders.myapplication.api.interfaces;
 
+import com.funkycoders.myapplication.api.models.UserResponse;
 import com.funkycoders.myapplication.api.models.UsersResponse;
 
 import java.util.List;
@@ -15,5 +16,12 @@ public interface GithubServices {
     Call<List<UsersResponse>> getUsers(@Query("per_page") int perPage, @Query("page") int page);
 
     @GET("/users/{username}")
-    Call<UsersResponse> getUser(@Path("username") String username);
+    Call<UserResponse> getUser(@Path("username") String username);
+
+    @GET("/users/{username}/followers")
+    Call<List<UsersResponse>> getFollowers(@Path("username") String username);
+
+    @GET("/users/{username}/following")
+    Call<List<UsersResponse>> getFollowings(@Path("username") String username);
+
 }

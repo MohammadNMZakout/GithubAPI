@@ -13,7 +13,8 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/actionShowUser"
-            app:destination="@id/userDetailsFragment" />
+            app:destination="@id/userDetailsFragment"
+            app:enterAnim="@anim/fragment_fade_enter" />
     </fragment>
     <fragment
         android:id="@+id/userDetailsFragment"
@@ -22,6 +23,6 @@
         tools:layout="@layout/fragment_user_details">
         <argument
             android:name="user"
-            app:argType="com.funkycoders.myapplication.api.models.UserResponse" />
+            app:argType="com.funkycoders.myapplication.api.models.UsersResponse" />
     </fragment>
 </navigation>
