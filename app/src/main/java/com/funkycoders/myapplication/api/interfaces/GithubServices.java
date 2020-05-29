@@ -12,7 +12,7 @@ import retrofit2.http.Query;
 public interface GithubServices {
 
     @GET("/users")
-    Call<List<UsersResponse>> getUsers(@Query("page") int page);
+    Call<List<UsersResponse>> getUsers(@Query("per_page") int perPage, @Query("page") int page);
 
     @GET("/users/{username}")
     Call<UsersResponse> getUser(@Path("username") String username);
