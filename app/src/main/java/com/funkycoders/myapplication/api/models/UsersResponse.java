@@ -1,64 +1,109 @@
 package com.funkycoders.myapplication.api.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class UsersResponse {
+public class UsersResponse implements Parcelable {
     @SerializedName("login")
     private String login;
-
     @SerializedName("id")
     private Integer id;
-
     @SerializedName("node_id")
     private String nodeId;
-
     @SerializedName("avatar_url")
     private String avatarUrl;
-
     @SerializedName("gravatar_id")
     private String gravatarId;
-
     @SerializedName("url")
     private String url;
-
     @SerializedName("html_url")
     private String htmlUrl;
-
     @SerializedName("followers_url")
     private String followersUrl;
-
     @SerializedName("following_url")
     private String followingUrl;
-
     @SerializedName("gists_url")
     private String gistsUrl;
-
     @SerializedName("starred_url")
     private String starredUrl;
-
     @SerializedName("subscriptions_url")
     private String subscriptionsUrl;
-
     @SerializedName("organizations_url")
     private String organizationsUrl;
     @SerializedName("repos_url")
-
     private String reposUrl;
     @SerializedName("events_url")
-
     private String eventsUrl;
-
     @SerializedName("received_events_url")
     private String receivedEventsUrl;
-
     @SerializedName("type")
     private String type;
-
     @SerializedName("site_admin")
     private Boolean siteAdmin;
 
     public UsersResponse() {
     }
+
+    public UsersResponse(String login, Integer id, String nodeId, String avatarUrl, String gravatarId, String url, String htmlUrl, String followersUrl, String followingUrl, String gistsUrl, String starredUrl, String subscriptionsUrl, String organizationsUrl, String reposUrl, String eventsUrl, String receivedEventsUrl, String type, Boolean siteAdmin) {
+        this.login = login;
+        this.id = id;
+        this.nodeId = nodeId;
+        this.avatarUrl = avatarUrl;
+        this.gravatarId = gravatarId;
+        this.url = url;
+        this.htmlUrl = htmlUrl;
+        this.followersUrl = followersUrl;
+        this.followingUrl = followingUrl;
+        this.gistsUrl = gistsUrl;
+        this.starredUrl = starredUrl;
+        this.subscriptionsUrl = subscriptionsUrl;
+        this.organizationsUrl = organizationsUrl;
+        this.reposUrl = reposUrl;
+        this.eventsUrl = eventsUrl;
+        this.receivedEventsUrl = receivedEventsUrl;
+        this.type = type;
+        this.siteAdmin = siteAdmin;
+    }
+
+    protected UsersResponse(Parcel in) {
+        login = in.readString();
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        nodeId = in.readString();
+        avatarUrl = in.readString();
+        gravatarId = in.readString();
+        url = in.readString();
+        htmlUrl = in.readString();
+        followersUrl = in.readString();
+        followingUrl = in.readString();
+        gistsUrl = in.readString();
+        starredUrl = in.readString();
+        subscriptionsUrl = in.readString();
+        organizationsUrl = in.readString();
+        reposUrl = in.readString();
+        eventsUrl = in.readString();
+        receivedEventsUrl = in.readString();
+        type = in.readString();
+        byte tmpSiteAdmin = in.readByte();
+        siteAdmin = tmpSiteAdmin == 0 ? null : tmpSiteAdmin == 1;
+    }
+
+    public static final Creator<UsersResponse> CREATOR = new Creator<UsersResponse>() {
+        @Override
+        public UsersResponse createFromParcel(Parcel in) {
+            return new UsersResponse(in);
+        }
+
+        @Override
+        public UsersResponse[] newArray(int size) {
+            return new UsersResponse[size];
+        }
+    };
 
     public String getLogin() {
         return login;
@@ -202,5 +247,37 @@ public class UsersResponse {
 
     public void setSiteAdmin(Boolean siteAdmin) {
         this.siteAdmin = siteAdmin;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(login);
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(id);
+        }
+        dest.writeString(nodeId);
+        dest.writeString(avatarUrl);
+        dest.writeString(gravatarId);
+        dest.writeString(url);
+        dest.writeString(htmlUrl);
+        dest.writeString(followersUrl);
+        dest.writeString(followingUrl);
+        dest.writeString(gistsUrl);
+        dest.writeString(starredUrl);
+        dest.writeString(subscriptionsUrl);
+        dest.writeString(organizationsUrl);
+        dest.writeString(reposUrl);
+        dest.writeString(eventsUrl);
+        dest.writeString(receivedEventsUrl);
+        dest.writeString(type);
+        dest.writeByte((byte) (siteAdmin == null ? 0 : siteAdmin ? 1 : 2));
     }
 }
