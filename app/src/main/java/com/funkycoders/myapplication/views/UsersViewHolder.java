@@ -59,6 +59,7 @@ public class UsersViewHolder extends RecyclerView.ViewHolder {
                 })
                 .into(ivAvatar);
         container.setOnClickListener(v -> {
+            //To prevent crash when clicked from ListFragment
             try {
                 MainActivity.getNavController().navigate(HomeFragmentDirections.actionShowUser(usersResponse));
             } catch (Exception e) {

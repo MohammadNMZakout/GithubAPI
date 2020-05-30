@@ -115,8 +115,9 @@ public class UserDetailsFragment extends Fragment implements BadgeListener {
     }
 
     private void loadResponse(UserResponse body) {
-
-        tvBio.setText(body.getBio().equals("") ? "This user doesn't have bio" : body.getBio());
+        //Fix for crash in case there was no bio
+        if (body.getBio() != null)
+            tvBio.setText(body.getBio().equals("") ? "This user doesn't have bio" : body.getBio());
         tvName.setText(body.getName());
         tvRepos.setText(getString(R.string.template_repos, String.valueOf(body.getPublicRepos())));
         tvGists.setText(getString(R.string.template_gists, String.valueOf(body.getPublicGists())));
