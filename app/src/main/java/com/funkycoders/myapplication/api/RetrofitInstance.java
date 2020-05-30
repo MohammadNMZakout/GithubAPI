@@ -5,9 +5,10 @@ import com.funkycoders.myapplication.api.interfaces.GithubServices;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.funkycoders.myapplication.utils.Constants.BASE_URL;
+
 
 public class RetrofitInstance {
-    private final static String BASE_URL = "https://api.github.com/";
     private static Retrofit retrofit = null;
 
     public static GithubServices getService() {

@@ -7,12 +7,12 @@ import androidx.appcompat.app.AlertDialog;
 
 public class GUIUtil {
     public static ProgressDialog showProgressDialog(Context context, String message) {
-        ProgressDialog m_Dialog = new ProgressDialog(context);
-        m_Dialog.setMessage(message);
-        m_Dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        m_Dialog.setCancelable(false);
-        m_Dialog.show();
-        return m_Dialog;
+        ProgressDialog dialog = new ProgressDialog(context);
+        dialog.setMessage(message);
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setCancelable(false);
+        dialog.show();
+        return dialog;
     }
 
     public static AlertDialog createAlertDialog(Context context, String message) {

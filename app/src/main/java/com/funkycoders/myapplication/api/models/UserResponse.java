@@ -4,45 +4,45 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserResponse extends UsersResponse {
 
+    @SerializedName("name")
     private String name;
     @SerializedName("company")
-
     private String company;
+
     @SerializedName("blog")
-
     private String blog;
+
     @SerializedName("location")
-
     private String location;
+
     @SerializedName("email")
-
     private String email;
+
     @SerializedName("hireable")
-
     private Object hireable;
+
     @SerializedName("bio")
-
     private String bio;
+
     @SerializedName("twitter_username")
-
     private String twitterUsername;
+
     @SerializedName("public_repos")
-
     private int publicRepos;
+
     @SerializedName("public_gists")
-
     private int publicGists;
+
     @SerializedName("followers")
-
     private int followers;
+
     @SerializedName("following")
-
     private int following;
+
     @SerializedName("created_at")
-
     private String createdAt;
-    @SerializedName("updated_at")
 
+    @SerializedName("updated_at")
     private String updatedAt;
 
     public UserResponse(String name, String company, String blog, String location, String email, Object hireable, String bio, String twitterUsername, int publicRepos, int publicGists, int followers, int following, String createdAt, String updatedAt) {
